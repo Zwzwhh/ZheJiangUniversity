@@ -1,0 +1,742 @@
+/*设置通用样式*/
+body,html{
+	width:100%;
+	height:100%;
+	font:14px "Microsoft Yahei", "PingFang SC", sans-serif;
+}
+body,html,div,ul,li,h1,h2,h3,h4,h5,h6,img{
+	margin:0;
+	padding:0;
+}
+
+li{
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+	color:#333;
+	font: 14px "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+/*占位符兼容不同浏览器*/
+input::-webkit-input-placeholder{/*Webkit browsers*/
+	color:#decdcf;
+	font-size:12px;
+}
+input::-moz-input-placeholder{/*Mozilla Firefox*/
+	color:#decdcf;
+	font-size:12px;
+}
+input:-ms-input-placeholder{/*IE Explorer*/
+	color:#decdcf;
+	font-size:12px;
+}
+.overhidden{/*专题专栏溢出隐藏*/
+	overflow:hidden;
+}
+
+/*头部样式设置*/
+.header{
+	width:100%;
+	background:#801224;
+	position:relative;/*父元素做相对定位*/
+}
+/*头部顶端logo一行和导航栏*/
+.header-con,.header-nav{
+	width:1200px;
+	margin:0 auto;
+}
+
+/*下面两个样式不知干嘛用,回头再来看*/
+.m-dot{
+	display:none;
+}
+.banner-dot{
+	display:none;
+}
+
+/*头部顶部第一行logo,搜索框高度*/
+.header-con{
+	height:125px;
+}
+
+/*头部的线,不知道用来干嘛*/
+.header-line{
+	width:95.2%;
+	padding-top:1px;
+	border-bottom:1px solid #6d0f1f;
+	float:left;
+	margin-left:2.5%;
+}
+/*头部顶部第一行两侧*/
+.header .header-con .logo,.header .header-con .search{
+	height:125px;/*上面设置了整个头部顶部的宽度,这里是里面的两块,所以有一块会超出125px,要用浮动*/
+}
+/*左边logo图标*/
+.header .header-con .logo{
+	float:left;
+	width:50%;
+	margin-left:3%;
+}
+/*左边logo图标里面的图片*/
+.header-con .logo>img{
+	max-width:100%;
+	padding:27px 5px;
+}
+
+/*右边的搜索框*/
+.header .header-con .search{
+	/*border:1px solid #000000;*/
+	float:right;/*大的搜索框div右边浮动,从下面到右边*/
+	width:44%;
+	padding-top:7px;
+	box-sizing:border-box;/*c3新特性,宽度包括内边距,加外边距*/
+	margin-right:3%;
+}
+/*右边搜索框上面导航栏,和下面搜索框样式*/
+.search-nav,.search-box{
+	/*border:1px solid #000000;*/
+	float:right;/*里面两个div浮动,下面的搜索框到了大的div的浮动到左边了*/
+}
+.search-nav li{
+	line-height:55px;
+	display:inline-block;/*块级的li向下的变成的行内块,向右的*/
+	margin:0 4px;
+}
+.search-nav a{
+	color: #decdcf;
+}
+.search-nav a:hover{
+	color:red;
+}
+
+/*下面的搜索框,用定位来确定他的位置*/
+.header-con .search-box{
+	/*border:1px solid #000000;*/
+	position:relative;/*父元素相对定位为之后的图片做绝对定位*/
+	width:265px;/*因为浮动本来是在左边的input框,设置了宽度超过浮动的这个宽度就下来了!!!*/
+	margin-right:25px;
+}
+/*下面搜索框里面的搜索input*/
+.header-con .search-box .search-input{
+	border:1px solid #decdcf;
+	width:257px;
+	height:36px;
+	outline:none;
+	border-radius: 20px;
+	background-color: #801224;
+	color:#fff;
+	padding-left:23px;
+}
+/*搜索框图标定位*/
+.search-box .search-img{
+	background:url(../img/search.png) no-repeat center center;
+	width:40px;/*必须设置高宽啊不然怎么显示出来呢!*/
+	height:40px;
+	position:absolute;/*是根据search-box这个大的div来定位的*/
+	top:0;
+	right:-4px;
+}
+
+/*头部下面的导航栏*/
+.header .header-nav .nav-ul{
+
+}
+
+.header .header-nav .nav-ul li{
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	margin-left:-4px;
+	width:10%;
+	text-align:center;
+}
+
+.nav-ul a{
+	color:#fff;
+	line-height:60px;
+	font-size:14px;
+}
+
+.nav-ul a:hover{
+	color:red;
+}
+
+/*头部轮播*/
+.header .header-banner{
+	position:relative;/*外面大的div用相对定位,是为了里面的左右箭头做绝对定位*/
+}
+
+/*ul>li里面的两张图中的class=m-banner先消失*/
+.header .header-banner .banner-ul li .m-banner{
+	display:none;
+}
+
+/*轮播的左右箭头*/
+.header-banner .banner-lf,.header-banner .banner-rig{
+	z-index:999;
+	position:absolute;
+	top:45%;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	background:rgba(0,0,0,.6);
+	cursor:pointer;
+	transition:all .2s linear;
+}
+/*左箭头*/
+.banner-lf{
+	left:9%;
+}
+/*右箭头*/
+.banner-rig{
+	right:9%;
+}
+.banner-lf>div,.banner-rig>div{
+	width:100%;
+	height:100%;
+}
+
+/*左箭头里面的div背景图*/
+.banner-lf>div{
+	background: url(../img/icon-list.png) no-repeat 18px -331px;
+}
+/*右箭头里面的div背景图*/
+.banner-rig>div{
+	background:url(../img/icon-list.png) no-repeat -18px -331px;
+}
+
+.banner-lf:hover,.banner-rig:hover{
+	background:#801224;
+}
+/*设置大的div高宽溢出隐藏*/
+.header .header-banner{
+	/*border:1px solid #000000;*/
+	width:100%;
+	height:600px;
+	overflow:hidden;
+}
+/*banner里面的ul图片让他横着来,三张图所以宽度应该设置300%*/
+.header .header-banner .banner-ul{
+	/*border:1px solid #000000;*/
+	position:relative;/*ul设置相对定位为了li里面的每张图做绝对定位*/
+	width:300%;
+	height:600px;
+}
+.banner-li{
+	/*border:1px solid #000000;*/
+	position:absolute;
+	top:0;
+	left:0;
+	display:inline-block;
+	width:33.33333%;/*根据父元素300%的三分之一,刚好就是100%*/
+	height:600px;
+	float:left;/*向左浮动前面两张图片不知道去哪里了*/
+	text-align:center;/*让图片在整个li中居中显示*/
+	background:url(../img/banner-bg.png) no-repeat;
+	background-size: cover;
+}
+
+/*.banner-li:first-child{*/
+	/*display:none;*/
+/*}*/
+/*.banner-li:nth-child(2){*/
+	/*display:none;*/
+/*}*/
+/*.banner-li:nth-child(3){*/
+	/*display:none;*/
+/*}*/
+.banner-li img{
+	vertical-align:top;
+	width:1600px;
+	height:600px;
+}
+
+/*快速通道*/
+.header .quick-pass{
+	/*border:1px solid #000000;*/
+	position:absolute;/*父元素.header已经做了绝对定位*/
+	bottom:0;
+	left:50%;
+	transform:translateX(-50%);/*不知道这个写了干嘛,没啥效果,c3新特性,元素沿x轴方向移动*/
+	width:1200px;
+	height:80px;
+}
+.header .quick-pass .quick-ul{
+	/*border:1px solid #000000;*/
+	font-size:0;
+	width:100%;
+	height:100%;
+}
+.header .quick-pass .quick-ul li{
+	/*border:1px solid #000000;*/
+	text-align:center;
+	display: inline-block;
+	width:16.666%;
+	height:100%;
+	/*line-height:100%;*/
+	background-color:#f2f2f2;
+}
+/*快速通道ul>li里面的div*/
+.header .quick-pass .quick-ul li .quick-li{
+	/*border:1px solid #000000;*/
+	height:45%;/*根据父元素li设置的高度*/
+	margin:10.5% 0;
+	color:#801224;
+	text-align:center;
+}
+
+.header .quick-pass .quick-ul li .quick-li a{
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	padding-left:28px;/*为了放图标进去,左边内边距空出28px图片大小*/
+	line-height:35px;
+	height:35px;
+	width:75px;
+	color:#801224;
+}
+.header .quick-pass .quick-ul li .quick-li a:hover{
+	color:red;
+}
+/*快速通道ul>li(每一个不同的li)>div>a的背景图*/
+.header .quick-pass .quick-ul li:first-child a{
+	background:url(../img/icon-list.png) no-repeat 0px 4px;
+}
+.header .quick-pass .quick-ul li:nth-child(2) a{
+	background:url(../img/icon-list.png) no-repeat 0px -44px;
+}
+.header .quick-pass .quick-ul li:nth-child(3) a{
+	background:url(../img/icon-list.png) no-repeat 0px -92px;
+}
+.header .quick-pass .quick-ul li:nth-child(4) a{
+	background:url(../img/icon-list.png) no-repeat 0px -193px;
+}
+.header .quick-pass .quick-ul li:nth-child(5) a{
+	background:url(../img/icon-list.png) no-repeat 0px -145px;
+}
+.header .quick-pass .quick-ul li:nth-child(6) a{
+	background:url(../img/icon-list.png) no-repeat 0px -243px;
+}
+
+
+/*主体部分*/
+.section{
+	width:100%;
+}
+
+/*主体部分的内容:新闻动态,通知公告,图片新闻,专题专栏宽度都一样,用一个class设置样式*/
+.section .section-mobel{
+	/*border:1px solid #000000;*/
+	width:1200px;
+	margin:0 auto;
+	color:#333;
+	position:relative;
+}
+/*主体里面的第一第三个div相同class*/
+.section-normal{
+	padding-bottom:20px;
+}
+
+/*主体里面的第二第四的div相同class*/
+.section-spacil-color{
+	background-color:#f2f2f2;
+	padding-bottom:20px;
+}
+
+/*每个主体的头部标题样式一样*/
+.section .section-mobel .section-top{
+	/*border:1px solid #000000;*/
+	width:100%;
+	height:99px;
+}
+/*头部标题左:浮动*/
+.section-name{
+	float:left;
+	line-height:99px;
+	font-size:30px;
+	font-family: "微软雅黑";
+}
+/*头部标题右:浮动*/
+.section-more{
+	float:right;
+	line-height:99px;
+}
+.section-more a:hover{
+	color:red;
+}
+/*不知道用来干嘛的下面这个div*/
+.m-section-more{
+	display:none;
+}
+
+/*主体内容*/
+.section .section-content{
+	/*border:1px solid #000000;*/
+	width:100%;
+	letter-spacing: -12px;/*字母和字母之间的空白,中文无效*/
+}
+/*主体内容ul>li*/
+.section-content>li{
+	display:inline-block;/*li设置为行内块*/
+	letter-spacing: normal;
+	width:23.75%;/*四个li设置为行内块*/
+}
+.section-content>li:not(:last-child){/*不是最后一个li*/
+	margin-right: 1.667%;
+}
+
+/*主体内容ul>li里面的div*/
+.sc-total{
+	border-top:4px solid #a51c30;/*最上面设置了4像素红色条*/
+	display:inline-block;
+	width:100%;/*根据父元素的宽度,也就是23.75%*/
+	vertical-align:top;
+	background-color:#fff;
+}
+.sc-total:first-child,.sc-total:nth-child(2),.sc-total:nth-child(3){
+	margin-right:6%;
+}
+/*设置li里面的图片,标题,内容通用样式*/
+.sc-img,.sc-title,.sc-article{
+	width:100%;
+}
+.sc-img{/*对图片设置完高宽,超出隐藏,图片上的相对定位是为了日期做绝对定位*/
+	vertical-align:top;
+	position:relative;/*父元素相对定位*/
+	height:210px;
+	overflow:hidden;
+}
+
+/*让内容中的图片显示完整,设置高宽*/
+.sc-img a{
+	display:inline-block;/*链接a设置为行内块*/
+	width:100%;
+	height:100%;
+}
+/*再设置a链接里面的图片img同父元素的a的高宽,因为父元素a已经是行内块了,所以可以设置*/
+.sc-img a img{
+	vertical-align: top;
+	width:100%;
+	height:100%;
+}
+/*头部图片里面的日期*/
+.sc-img .sc-time{/*因为之前图片.sc-img大的div设置了超出隐藏,所以日期之前看不到*/
+	position:absolute;/*.sc-time是div本来就是块,可以设置背景*/
+	bottom:0;
+	right:0;
+	background-color: rgba(0,0,0,.4);
+	width:100px;
+	height:30px;
+	color:#fff;/*div里面的span变为白色*/
+	font:12px 'Arial',sans-serif;
+	line-height:30px;
+	text-align:center;
+}
+
+/*html上写的多余的东西其实是为了自适应做准备,在这个css宽度大的页面中用不到,就先隐藏,如果小屏幕的页面要用到,再显示出来*/
+.m-sc-time{
+	display: none;
+}
+
+/*图片下面,中间的标题*/
+.sc-title{
+	text-overflow:ellipsis;
+	white-space: nowrap;/*处理元素内的空白,不进行换行,用省略号代替*/
+	overflow:hidden;/*超出部分隐藏*/
+}
+.sc-title a{
+	font-weight:bolder;/*相对于上级元素继承*/
+	font-size:0.9em;
+	line-height:45px;
+	color:#404040;
+}
+.sc-title a:hover{
+	color:red;
+}
+/*标题下面,中间的详细内容*/
+.sc-article{
+	width:100%;
+	height:70px;
+	font-size:12px;
+	line-height:24px;/*行和行之间的高度*/
+	color:#808080;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	/*white-space: nowrap;/!*强制文本在一行内显示,超出隐藏用省略号代替*!/*/
+	display:-webkit-box;/*c3新特性设置webkit内核盒子模型*/
+	-webkit-line-clamp:3;/*3行文本溢出做这个操作*/
+	-webkit-box-orient: vertical;
+}
+/*主体内容下面的查看详情*/
+.sc-detail{
+	/*border:1px solid #000000;*/
+	width:100%;
+	padding:9% 0;
+}
+.sc-detail span{
+	/*border:1px solid #000000;*/
+	display: inline-block;
+	width:73px;
+	height:19px;
+}
+.sc-detail a{
+	display:inline-block;
+	width:73px;
+	height:19px;
+	float:right;
+	font-size:12px;
+	color:#808080;
+	background:url(../img/icon-list.png) no-repeat 53px -285px;
+	transform: translateY(-10px);/*定义y轴的值转换,向上10px*/
+}
+
+.sc-detail a:hover{
+	color:red;
+}
+
+/*通知公告*/
+	/*通知公告去掉头部的主体内容的大的div里面的ul>li>div>div.sc-notice主体顶部大标题*/
+.sc-notice{
+	/*border:1px solid #000000;*/
+	width:100%;/*根据父元素23.75%的宽度,具有继承性*/
+	height:80px;
+	padding:17px;
+	box-sizing:border-box;/*c3盒子模型少了:内边距边界宽度*/
+	font-family:"Arial",sans-serif;
+}
+/*通知公告大标题左边的日期*/
+.sc-notice-calendar{
+	/*border:1px solid #000000;*/
+	float:left;
+	width:60px;
+	height:60px;
+	background-color: #a51c30;/*日历外面大的div块级元素可以设置高宽背景*/
+	text-align:center;/*大的div设置了文本居中,里面的东西就居中了*/
+	color:#fff;
+}
+
+/*上面的天数*/
+.scc-day{
+	padding-top:8px;
+	font-size:24px;
+}
+/*下面的年份*/
+.scc-date{
+	font-size:12px;
+}
+
+/*通知公告大标题右边的标题*/
+.sc-calendar-title{
+	/*border:1px solid #000000;*/
+	float:right;
+	margin-top:10px;
+	width:71%;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	display:-webkit-box;
+	-webkit-line-clamp:2;
+	-webkit-box-orient: vertical;
+}
+.sc-calendar-title a{
+	font-size:14px;
+	font-weight:bolder;
+	color:#404040;
+}
+.sc-calendar-title a:hover{
+	color:red;
+}
+/*标题下面的详细内容*/
+.sc-notice-article{
+	/*border:1px solid #000000;*/
+	height:203px;
+	overflow:hidden;
+	padding:0 20px;
+	box-sizing:border-box;
+	margin:8px 0;
+	white-space: pre-line;/*保留空白符序列，但是正常地进行换行。*/
+	width:100%;
+	font-size:12px;
+	line-height:25px;
+	color:#808080;
+}
+/*图片新闻和新闻动态是一模一样的,所以cv一下就好*/
+
+/*专题专栏*/
+	/*里面的主体内容.section-mobel>#leftTabBox>section-subject*/
+.seciton-subject{/*字母打错了*/
+	/*border:1px solid #000000;*/
+	width:1200px;
+	margin:0 auto 20px auto;/*上左右下*/
+}
+.section-subject-ul{
+	font-size:0;/*父元素font-size: 0;解决inline元素间的空白间隙; 父级元素的　font-size:0　解决子代的inline或inline-block的换行或图片空隙问题*/
+}
+.section-subject-ul li{
+	/*border:1px solid #000000;*/
+	position:relative;/*父元素给里面的img做相对定位*/
+	vertical-align:top;
+	display:inline-block;/*子元素每个li之间是有空白的,父元素设置了font-size:0就没了*/
+	width:19%;
+	height:100px;
+	overflow:hidden;
+}
+.section-subject-ul li:hover .section-subject-hover{/*css可以完成!专题专栏系所动态这样的效果!*/
+	top:0;/*li:hover的时候.section-subject-hover的top:100%直接变为0,实现系所动态从下到上的一个效果*/
+}
+.section-subject-ul li:not(:last-child){/*不是最后一个li设置右边外边框*/
+	margin-right:1.25%;
+}
+.section-subject-ul img{
+	width:100%;/*根据父元素19%的100%*/
+	height:100%;
+}
+/*专题专栏里面系所动态四个字在图片上悬浮*/
+.section-subject-hover{
+	position:absolute;
+	z-index:1;
+	width:100%;/*div块级元素可以设置宽高*/
+	height:100%;/*根据父元素li的19%设置100%*/
+	top:100%;
+	left:0;
+	background:rgba(235,75,71,.75);
+	color:#fff;
+	text-align:center;
+	font-size:1.5em;
+	line-height:100px;
+	transition:all .3s linear;
+}
+/*自适应屏幕专题专栏hover隐藏*/
+.m-section-subject-hover{
+	display:none;
+	position:absolute;
+	width:100%;
+	height:20px;
+	top:100%;
+	left:0;
+	z-index:100;
+	font-size:14px;
+	text-align:center;
+}
+
+/*左右两个箭头的样式*/
+.section-arrows-lf,.section-arrows-rig{
+	/*border:1px solid #000000;*/
+	position:absolute;
+	top:129px;
+	width:25px;
+	height:32px;
+}
+/*左边箭头*/
+.section-arrows-lf{
+	left:-52px;
+	background:url(../img/icon-list.png) no-repeat 2px -419px;
+}
+/*右边箭头*/
+.section-arrows-rig{
+	right:-52px;
+	background:url(../img/icon-list.png) no-repeat -37px -419px;
+}
+
+/*脚步*/
+.footer{
+	background-color: #333;/*背景图是透明的,如果没有背景颜色就显示不出来*/
+	padding:54px 0;/*设置上下内边距*/
+}
+/*底部大div里面的内容div*/
+.footer .footer-content{
+	/*border:1px solid #000000;*/
+	width:1200px;
+	margin:0 auto;
+}
+/*.footer-content里面的左中右三个div内容*/
+.fc-1,.fc-2,.fc-3{/*三个div设置行内块*/
+	display:inline-block;
+	vertical-align:top;
+}
+/*自适应的先none掉*/
+.m-fc-1{
+	display:none;
+}
+.fc-1{
+	/*border:1px solid #000000;*/
+	width:54%;
+}
+.fc-1 img{
+	/*border:1px solid #000000;*/
+	width:98%;
+}
+.fc-address>span,.fc-address>li>a{
+	/*border:1px solid #000000;*/
+	font-size:14px;
+	color:#fff;
+	display:inline-block;
+	margin-top:10px;
+	line-height:20px;
+}
+/*左边logo下面的几排文字的|*/
+.fc-special{
+	color:#717171 !important;
+	margin:0 10px;
+}
+/*中间二维码*/
+.fc-2{
+	/*border:1px solid #000000;*/
+	width:29%;/*它的父元素footer-content为1200px*/
+	text-align:center;
+	color:#fff;
+}
+.fc-2 img{
+	width:106px;
+}
+.fc-tdc{
+	line-height:28px;
+}
+/*右边链接*/
+.fc-3{
+	/*border:1px solid #000000;*/
+	width:16%;
+	color:#fff;
+}
+.fc-select{
+	border:1px solid #999999;
+	width:100%;/*根据fc-3的宽度16%来定位的*/
+	height:30px;
+	line-height:30px;
+	margin-bottom:19px;
+	color:#fff;
+	background-color:#333;
+	background:url(../img/icon-list.png) no-repeat 156px -312px;
+	cursor:pointer;
+}
+.fc-select span:hover{
+	color:red;
+}
+/*这个真不知道用来干嘛的,每个里面写这么一个东西,是用来自适应屏幕的吗*/
+.section-erect{
+	display:none;
+	padding:2%;
+	background-color:#f5f5f5;
+	border-top:1px solid #e6e6e6;
+	border-bottom:1px solid #e6e6e6;
+}
+
+/*自适应媒体查询*/
+	/*最大宽度为1600px*/
+@media screen and (max-width:1600px){
+	/*设置搜索框和导航栏*/
+	.header-con,.header-nav{
+		background-color:#801224;
+	}
+	/*头部轮播,以及里面的轮播的li*/
+	.header-banner,.banner-li{
+		max-width:100%;
+		height:600px;
+		/*overflow:hidden;因为这里有.banner-li所以不能直接写溢出,单独写*/
+	}
+	.header-banner{
+		overflow:hidden;
+	}
+	.banner-ul{
+
+	}
+}
+
